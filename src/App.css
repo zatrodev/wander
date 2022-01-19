@@ -267,7 +267,7 @@ body {
 .bullet {
   position: absolute;
   width: 20px;
-  height: 1px;
+  height: 2px;
   background-color: orange;
 
   animation: bullet-move 2s linear;
@@ -276,7 +276,7 @@ body {
 .killer-bullet {
   position: absolute;
   width: 20px;
-  height: 2.5px;
+  height: 3.5px;
   background-color: blue;
   box-shadow: 0 0 5px blue;
 
@@ -286,7 +286,7 @@ body {
 .enemy-bullet {
   position: absolute;
   width: 20px;
-  height: 1px;
+  height: 2px;
   right: 100px;
   background-color: red;
 

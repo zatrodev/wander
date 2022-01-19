@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-
 function Ship(props) {
-  return (
+  return ( 
     <img
       className="ship"
       src="./spaceship.png"

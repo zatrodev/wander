@@ -296,6 +296,10 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (shipTop < 0 || shipTop > 300) GAME_OVER = gameOver();
+  }, [shipTop]);
+
+  useEffect(() => {
     let addPipeTimeout = setTimeout(() => {
       if (!GAME_OVER) {
         addScore();
