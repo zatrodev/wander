@@ -21,6 +21,7 @@ const SHIP_SPEED = 20;
 
 let count = 0;
 let hasShield = true;
+let canShield = true;
 let GAME_OVER = true;
 
 function App() {
@@ -87,9 +88,13 @@ function App() {
   const addShield = () => {
     document.getElementsByClassName("ship")[0].classList.add("shield");
     hasShield = true;
+    canShield = false;
     setTimeout(() => {
       hasShield = false;
       document.getElementsByClassName("ship")[0].classList.remove("shield");
+      setTimeout(() => {
+        canShield = true;
+      }, 500);
     }, 3000);
   };
 
@@ -167,9 +172,9 @@ function App() {
         }
         break;
       case "i":
-        if (ammo > 4 && hasShield == false) {
+        if (ammo > 4 && hasShield == false && canShield) {
           addShield();
-          setAmmo((ammo) => ammo - 4);
+          setAmmo((ammo) => ammo - 5);
         }
         break;
       case "b":
