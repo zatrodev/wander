@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wander/static/css/main.3ec4fbae.css",
+    "main.js": "/wander/static/js/main.7916bd00.js",
+    "index.html": "/wander/index.html",
+    "main.3ec4fbae.css.map": "/wander/static/css/main.3ec4fbae.css.map",
+    "main.7916bd00.js.map": "/wander/static/js/main.7916bd00.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ec4fbae.css",
+    "static/js/main.7916bd00.js"
+  ]
+}
