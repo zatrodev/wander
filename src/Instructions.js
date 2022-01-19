@@ -12,7 +12,7 @@ function Instructions() {
         <p className="p">Press [P] to shoot down pipes (-1 ammo)</p>
         <p className="o">Press [O] to shoot down the enemy ship (-2 ammo)</p>
         <p className="i">
-          Press [I] to obtain a shield for 3 seconds (-4 ammo)
+          Press [I] to obtain a shield for 3 seconds (-5 ammo & 0.5s cooldown)
         </p>
         <p className="play">
           Press <b>[Enter]</b> to play
