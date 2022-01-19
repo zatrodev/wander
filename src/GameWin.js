@@ -14,7 +14,10 @@ function GameWin(props) {
 }
 
 function gameWin() {
-  document.getElementsByClassName("game-win")[0].style.opacity = 0.7;
+  const gameWinDoc = document.getElementsByClassName("game-win")[0];
+  gameWinDoc.style.visibility = "visible";
+  gameWinDoc.style.opacity = 0.7;
+
   return true;
 }
 

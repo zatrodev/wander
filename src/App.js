@@ -31,7 +31,7 @@ function App() {
   const [enemyShips, setEnemyShips] = useState({ ships: [] });
   const [bullet, setBullet] = useState({ bullets: [] });
   const [enemyBullet, setEnemyBullet] = useState({ enemyBullets: [] });
-  const [ammo, setAmmo] = useState(75);
+  const [ammo, setAmmo] = useState(50);
   const [score, setScore] = useState(0);
 
   const pipeSetup = () => {
@@ -145,54 +145,59 @@ function App() {
     }
   };
 
-  const keyPressHandler = (event) => {
-    switch (event.key) {
-      case "w":
-        setShipTop((shipTop) => shipTop - SHIP_SPEED);
-        break;
-      case "s":
-        setShipTop((shipTop) => shipTop + SHIP_SPEED);
-        break;
-      case "a":
-        setShipLeft((shipLeft) => shipLeft - SHIP_SPEED);
-        break;
-      case "d":
-        setShipLeft((shipLeft) => shipLeft + SHIP_SPEED);
-        break;
-      case "p":
-        if (ammo > 0) {
-          addBullet("bullet");
-          setAmmo((ammo) => ammo - 1);
-        }
-        break;
-      case "o":
-        if (ammo > 1) {
-          addBullet("killer-bullet");
-          setAmmo((ammo) => ammo - 2);
-        }
-        break;
-      case "i":
-        if (ammo > 4 && hasShield == false && canShield) {
-          addShield();
-          setAmmo((ammo) => ammo - 5);
-        }
-        break;
-      case "b":
-        document.getElementsByClassName("ship")[0].style.border =
-          "1px dashed white";
-        break;
-      case "Enter":
-        if (sessionStorage.getItem(0) != "test") {
-          sessionStorage.setItem(0, "test");
-          GAME_OVER = false;
-          hasShield = false;
-          window.location.reload();
-        }
+  const keyDownHandler = (event) => {
+    if (!GAME_OVER) {
+      switch (event.key) {
+        case "w":
+          setShipTop((shipTop) => shipTop - SHIP_SPEED);
+          break;
+        case "s":
+          setShipTop((shipTop) => shipTop + SHIP_SPEED);
+          break;
+        case "a":
+          setShipLeft((shipLeft) => shipLeft - SHIP_SPEED);
+          break;
+        case "d":
+          setShipLeft((shipLeft) => shipLeft + SHIP_SPEED);
+          break;
+        case "p":
+          if (ammo > 0) {
+            addBullet("bullet");
+            setAmmo((ammo) => ammo - 1);
+          }
+          break;
+        case "o":
+          if (ammo > 1) {
+            addBullet("killer-bullet");
+            setAmmo((ammo) => ammo - 2);
+          }
+          break;
+        case "i":
+          if (ammo > 4 && hasShield == false && canShield) {
+            addShield();
+            setAmmo((ammo) => ammo - 5);
+          }
+          break;
+        case "b":
+          document.getElementsByClassName("ship")[0].style.border =
+            "1px dashed white";
+          break;
+      }
+    } else {
+      switch (event.key) {
+        case "Enter":
+          if (sessionStorage.getItem(0) != "test") {
+            sessionStorage.setItem(0, "test");
+            GAME_OVER = false;
+            hasShield = false;
+            window.location.reload();
+          }
 
-        break;
-      case "r":
-        window.location.reload();
-        break;
+          break;
+        case "r":
+          window.location.reload();
+          break;
+      }
     }
   };
 
@@ -325,7 +330,7 @@ function App() {
         height: HEIGHT,
       }}
       tabIndex={0}
-      onKeyPress={keyPressHandler}
+      onKeyDown={keyDownHandler}
     >
       <Instructions></Instructions>
       <GameOver score={score}></GameOver>
