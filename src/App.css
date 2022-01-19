@@ -1,0 +1,467 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;700&display=swap');
+
+body {
+  overflow: hidden;
+}
+
+.canvas {
+  position: relative;
+  background: black;
+  display: flex;
+  justify-content: right;
+  margin: auto;
+}
+
+.instructions {
+  position: absolute;
+  background: black;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%; 
+  z-index: 1;
+
+  transition: opacity 2s linear;
+}
+
+.game-over {
+  position: absolute;
+  background: black;
+  opacity: 0;
+  width: 100%;
+  height: 100%; 
+  z-index: 1;
+
+  transition: opacity 2s linear;
+}
+
+.game-win {
+  position: absolute;
+  background: black;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  transition: opacity 2s linear;
+}
+
+.text-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.lost {
+  width: 100%;
+  position: absolute;
+  font-size: 75px;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.asar {
+  width: 100%;
+  position: absolute;
+  margin-top: 70px;
+  font-size: 16px;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.time {
+  width: 100%;
+  position: absolute;
+  margin-top: 90px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.restart {
+  width: 100%;
+  position: absolute;
+  margin-top: 130px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.p {
+  width: 100%;
+  position: absolute;
+  margin-top: 110px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.o {
+  width: 100%;
+  position: absolute;
+  margin-top: 130px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.i {
+  width: 100%;
+  position: absolute;
+  margin-top: 150px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.play {
+  width: 100%;
+  position: absolute;
+  margin-top: 200px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Dongle", sans-serif;
+}
+
+.pipe {
+  position: absolute;
+  width: 30px;
+  right: 100px;
+  border: 2px solid red;
+  box-shadow: 0 0 20px red;
+  opacity: 0;
+
+  animation: pipe-move 5.5s linear, pipe-color-move 5.5s linear;
+  transition: opacity 1s;
+}
+
+.destroyed-pipe {
+  position: absolute;
+  position: absolute;
+  width: 30px;
+  right: 100px;
+  border: 2px solid #1b1f1c;
+  box-shadow: 0 0 20px #1b1f1c;
+
+  animation: pipe-move 5.5s linear;
+}
+
+.starfield__stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 400px;
+  width: 100%;
+}
+
+.starfield.small .starfield__stars {
+  width: 1px;
+  height: 1px;
+  box-shadow: 489px 468px orange, 364px 571px orange, 43px 463px orange,
+    209px 205px orange, 59px 60px orange, 473px 456px orange, 208px 391px orange,
+    518px 463px orange, 255px 131px orange, 582px 331px orange,
+    165px 297px orange, 32px 70px orange, 585px 302px orange, 532px 459px orange,
+    242px 453px orange, 85px 389px orange, 282px 598px orange,
+    554px 250px orange, 347px 299px orange, 93px 352px orange,
+    179px 106px orange, 119px 572px orange, 405px 248px orange, 88px 57px orange,
+    228px 135px orange, 519px 302px orange, 94px 260px orange, 57px 111px orange,
+    450px 4px orange, 5px 544px orange, 321px 589px orange, 438px 298px orange,
+    399px 319px orange, 278px 551px orange, 134px 468px orange,
+    481px 318px orange, 253px 14px orange, 53px 33px orange, 229px 248px orange,
+    393px 386px orange, 490px 96px orange, 392px 109px orange, 180px 49px orange,
+    537px 174px orange, 204px 317px orange, 27px 408px orange,
+    571px 580px orange, 512px 410px orange, 288px 280px orange,
+    168px 504px orange, 214px 148px orange, 283px 43px orange,
+    221px 368px orange, 582px 89px orange, 445px 334px orange, 4px 455px orange,
+    185px 392px orange, 198px 260px orange, 202px 91px orange,
+    145px 558px orange, 90px 110px orange, 346px 473px orange, 25px 238px orange,
+    159px 457px orange, 468px 549px orange, 466px 106px orange,
+    298px 222px orange, 428px 477px orange, 433px 169px orange,
+    344px 582px orange, 207px 527px orange, 333px 381px orange,
+    51px 383px orange, 415px 590px orange, 268px 238px orange, 337px 93px orange,
+    536px 584px orange, 169px 31px orange, 343px 37px orange, 33px 258px orange,
+    337px 577px orange, 115px 408px orange, 566px 552px orange,
+    518px 41px orange, 480px 254px orange, 288px 140px orange, 14px 381px orange,
+    482px 185px orange, 83px 252px orange, 33px 326px orange, 175px 87px orange,
+    502px 551px orange, 171px 58px orange, 33px 133px orange, 266px 294px orange,
+    522px 120px orange, 119px 559px orange, 227px 378px orange,
+    423px 536px orange, 260px 230px orange;
+
+  -moz-animation: stars 20s linear infinite;
+  -webkit-animation: stars 20s linear infinite;
+  animation: stars 20s linear infinite;
+}
+
+.starfield.medium .starfield__stars {
+  width: 2px;
+  height: 2px;
+  box-shadow: 83px 561px yellow, 299px 500px yellow, 422px 71px yellow,
+    191px 473px yellow, 265px 582px yellow, 49px 588px yellow,
+    574px 142px yellow, 205px 94px yellow, 185px 392px yellow, 25px 148px yellow,
+    27px 102px yellow, 199px 543px yellow, 37px 51px yellow, 78px 212px yellow,
+    227px 155px yellow, 218px 25px yellow, 186px 556px yellow, 82px 506px yellow,
+    477px 568px yellow, 586px 165px yellow, 557px 304px yellow,
+    311px 210px yellow, 37px 1px yellow, 575px 24px yellow, 262px 150px yellow,
+    321px 551px yellow, 285px 548px yellow, 115px 141px yellow,
+    414px 590px yellow, 132px 201px yellow, 7px 291px yellow, 438px 437px yellow,
+    469px 350px yellow, 127px 394px yellow, 179px 539px yellow,
+    145px 427px yellow, 168px 576px yellow, 67px 580px yellow,
+    370px 494px yellow, 243px 176px yellow;
+
+  -moz-animation: stars 20s linear infinite;
+  -webkit-animation: stars 20s linear infinite;
+  animation: stars 20s linear infinite;
+}
+
+.starfield.large .starfield__stars {
+  width: 3px;
+  height: 3px;
+  box-shadow: 464px 394px yellow, 98px 87px yellow, 271px 211px yellow,
+    121px 274px yellow, 530px 259px yellow, 226px 448px yellow,
+    480px 198px yellow, 358px 460px yellow, 161px 479px yellow,
+    214px 127px yellow, 432px 186px yellow, 525px 166px yellow,
+    118px 206px yellow, 448px 522px yellow, 150px 207px yellow;
+
+  -moz-animation: stars 5s linear infinite alternate;
+  -webkit-animation: stars 5s linear infinite alternate;
+  animation: stars 5s linear infinite alternate;
+}
+
+.ship {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  outline: 0;
+
+  transform: rotate(45deg);
+}
+
+.shield {
+  animation: shield 3s linear;
+}
+
+.ship-game-over {
+  animation: game-over 2.5s ease-in forwards;
+}
+
+.enemy-ship {
+  position: absolute;
+  right: 100px;
+  outline: 0;
+
+  transform: rotate(-135deg);
+}
+
+.bullet {
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background-color: orange;
+
+  animation: bullet-move 2s linear;
+}
+
+.killer-bullet {
+  position: absolute;
+  width: 20px;
+  height: 2.5px;
+  background-color: blue;
+  box-shadow: 0 0 5px blue;
+
+  animation: bullet-move 2s linear;
+}
+
+.enemy-bullet {
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  right: 100px;
+  background-color: red;
+
+  animation: enemy-bullet-move 2s linear;
+}
+
+.score {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: white;
+  font-family: "Shadows Into Light", cursive;
+  font-size: large;
+  margin: 5px;
+}
+
+.ammo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 5px;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+@keyframes pipe-move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50vw);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes pipe-color-move {
+  0% {
+    border: 2px solid red;
+    box-shadow: 0 0 20px red;
+  }
+  10% {
+    border: 2px solid #ffa200;
+    box-shadow: 0 0 20px #ffa200;
+  }
+  20% {
+    border: 2px solid #ffff00;
+    box-shadow: 0 0 20px #ffff00;
+  }
+  30% {
+    border: 2px solid #62ff00;
+    box-shadow: 0 0 20px #62ff00;
+  }
+  40% {
+    border: 2px solid #00ff37;
+    box-shadow: 0 0 20px #00ff37;
+  }
+  50% {
+    border: 2px solid #00ffc8;
+    box-shadow: 0 0 20px #00ffc8;
+  }
+  60% {
+    border: 2px solid #00a2ff;
+    box-shadow: 0 0 20px #00a2ff;
+  }
+  70% {
+    border: 2px solid blue;
+    box-shadow: 0 0 20px blue;
+  }
+  80% {
+    border: 2px solid rgb(153, 0, 255);
+    box-shadow: 0 0 20px rgb(153, 0, 255);
+  }
+  90% {
+    border: 2px solid rgb(255, 0, 191);
+    box-shadow: 0 0 20px rgb(255, 0, 191);
+  }
+  100% {
+    border: 2px solid red;
+    box-shadow: 0 0 20px red;
+  }
+}
+
+@keyframes bullet-move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes enemy-bullet-move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50vw);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes game-over {
+  50% {
+    transform: translateY(50vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes stars {
+  0% {
+    -moz-transform: translateX(0) translateZ(0);
+    -webkit-transform: translateX(0) translateZ(0);
+    -ms-transform: translateX(0) translateZ(0);
+    transform: translateX(0) translateZ(0);
+  }
+  100% {
+    -moz-transform: translateX(-200px) translateZ(0);
+    -webkit-transform: translateX(-200px) translateZ(0);
+    -ms-transform: translateX(-200px) translateZ(0);
+    transform: translateX(-200px) translateZ(0);
+  }
+}
+
+@keyframes shield {
+  0% {
+    border: 1px solid red;
+    box-shadow: 0 0 20px red;
+  }
+  10% {
+    border: 1px solid #ffa200;
+    box-shadow: 0 0 20px #ffa200;
+  }
+  20% {
+    border: 1px solid #ffff00;
+    box-shadow: 0 0 20px #ffff00;
+  }
+  30% {
+    border: 1px solid #62ff00;
+    box-shadow: 0 0 20px #62ff00;
+  }
+  40% {
+    border: 1px solid #00ff37;
+    box-shadow: 0 0 20px #00ff37;
+  }
+  50% {
+    border: 1px solid #00ffc8;
+    box-shadow: 0 0 20px #00ffc8;
+  }
+  60% {
+    border: 1px solid #00a2ff;
+    box-shadow: 0 0 20px #00a2ff;
+  }
+  70% {
+    border: 1px solid blue;
+    box-shadow: 0 0 20px blue;
+  }
+  80% {
+    border: 1px solid rgb(153, 0, 255);
+    box-shadow: 0 0 20px rgb(153, 0, 255);
+  }
+  90% {
+    border: 1px solid rgb(255, 0, 191);
+    box-shadow: 0 0 20px rgb(255, 0, 191);
+  }
+  100% {
+    border: 1px solid red;
+    box-shadow: 0 0 20px red;
+  }
+}
