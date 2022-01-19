@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/wander/static/css/main.6ac9570d.css",
-    "main.js": "/wander/static/js/main.1ead3f20.js",
+    "main.css": "/wander/static/css/main.accb5a1e.css",
+    "main.js": "/wander/static/js/main.58c3ac12.js",
     "index.html": "/wander/index.html",
-    "main.6ac9570d.css.map": "/wander/static/css/main.6ac9570d.css.map",
-    "main.1ead3f20.js.map": "/wander/static/js/main.1ead3f20.js.map"
+    "main.accb5a1e.css.map": "/wander/static/css/main.accb5a1e.css.map",
+    "main.58c3ac12.js.map": "/wander/static/js/main.58c3ac12.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ac9570d.css",
-    "static/js/main.1ead3f20.js"
+    "static/css/main.accb5a1e.css",
+    "static/js/main.58c3ac12.js"
   ]
 }
