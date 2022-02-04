@@ -33,7 +33,7 @@ function EnemyShip(props) {
   return (
     <img
       className="enemy-ship"
-      src="./enemy_spaceship.png"
+      src={process.env.PUBLIC_URL + '/enemy_spaceship.png'}
       style={{
         top: top,
         width: props.width,

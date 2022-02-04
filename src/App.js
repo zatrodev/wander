@@ -89,7 +89,7 @@ function App() {
     document.getElementsByClassName("ship")[0].classList.add("shield");
     hasShield = true;
     canShield = false;
-    setTimeout(() => {
+    setTimeout(() => {  
       hasShield = false;
       document.getElementsByClassName("ship")[0].classList.remove("shield");
       setTimeout(() => {
@@ -129,7 +129,7 @@ function App() {
         enShip.push(
           <EnemyShip
             callback={addEnemyBullet}
-            top={150}
+            top={enemyShipToBeDestroyed.getBoundingClientRect().top + 7}
             width={enemyShipToBeDestroyed.clientWidth - 5}
             key={Math.random()}
           ></EnemyShip>

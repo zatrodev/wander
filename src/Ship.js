@@ -2,7 +2,7 @@ function Ship(props) {
   return ( 
     <img
       className="ship"
-      src="./spaceship.png"
+      src={process.env.PUBLIC_URL + '/spaceship.png'}
       style={{
         top: props.top,
         left: props.left,
